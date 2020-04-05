@@ -1,0 +1,58 @@
+package uzd2_Sokolovs;
+
+import java.util.Scanner;
+
+public class Uzd2Sokolovs {
+	static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Autors: Sergejs Sokolovs");
+		System.out.println("Ielikto ciklu organizâcijas paòçmieni");
+		System.out.println("Izveidot divdimensiju masîvu, kuram ir 10 rindas un 10 kolonas. ");
+		int A[][] = new int [10][10];
+		int k;
+		System.out.print("Ievadiet variantu (A - 1; B - 2):");
+		do {
+	    	while (!sc.hasNextInt()) {
+	            System.out.println("Tas nav vesels skaitlis, atkârtojiet ievadi ");
+	            sc.next(); // this is important!
+	            System.out.print("ievadiet variantu (A - 1; B - 2):");
+	        }
+	    	k = sc.nextInt();
+	    	if(k > 2 || k < 1) {
+	    		System.out.println("Numurs ârpus diapazona, atkârtojiet ievadi");
+	    		System.out.print("ievadiet variantu (A - 1; B - 2):");
+	    	}
+	      } while(!(k >= 1 && k <= 2));
+		sc.close();
+		System.out.println("Sâkotnçjs masîvs:");
+		for (int i=0; i<10; i++) {
+			for (int j=0; j<10; j++)
+						System.out.print(A[i][j] + "\t");
+					System.out.println();
+				}
+		if (k==1) {
+			int C = 27;
+			for (int i=0; i<=9; i++)
+			    for (int j=9-i; j>=7-i; j--) 
+			         if (j>=0) {
+			             A[i][j] = C;
+			             C = C + -1;
+			          
+			         }
+			}
+		else if (k==2) {
+			for (int j=9; j>=0; j--)
+		         for (int i=9-j; i>=0-i; i--)
+		             A[i][j] = i+j-(-1);
+			
+				} 
+			System.out.println("result:");
+		for (int i=0; i<10; i++) {
+			for (int j=0; j<10; j++)
+						System.out.print(A[i][j] + "\t");
+					System.out.println();
+				}
+	}
+
+}
